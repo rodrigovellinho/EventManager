@@ -7,6 +7,7 @@ import {
   getEventById,
   getFeaturedEvents,
 } from "../../components/helpers/api-util";
+import Head from "next/head";
 
 function EventDetailPage(props) {
   const event = props.selectedEvent;
@@ -21,6 +22,10 @@ function EventDetailPage(props) {
 
   return (
     <Fragment>
+      <Head>
+        <title>{event.title}</title>
+        <meta name="description" content={event.description} />
+      </Head>
       <EventSummary title={event.title} />
       <EventLogistics
         date={event.date}
